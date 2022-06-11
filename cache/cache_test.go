@@ -18,9 +18,9 @@ func TestMockCache(t *testing.T) {
 	mockComposer.EXPECT().Put("a", "1").AnyTimes()
 	mockComposer.EXPECT().Get("a").Return("1", nil).AnyTimes()
 	mockComposer.EXPECT().Get("b").Return("", errors.New("empty")).AnyTimes()
-	RegisterCache("test", mockComposer)
+	Register("test", mockComposer)
 
-	c := NewCache(Config{Policy: "test", Size: 1})
+	c := New(Config{Policy: "test", Size: 1})
 	t.Run("value is not empty", func(t *testing.T) {
 		c.Put("a", "1")
 		v, err := c.Get("a")

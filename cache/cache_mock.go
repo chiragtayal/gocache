@@ -34,30 +34,35 @@ func (m *MockCache) EXPECT() *MockCacheMockRecorder {
 }
 
 // Get mocks base method.
-func (m *MockCache) Get(key string) (string, error) {
+func (m *MockCache) Get(arg0 string) (string, error) {
 	m.ctrl.T.Helper()
-	ret := m.ctrl.Call(m, "Get", key)
+	ret := m.ctrl.Call(m, "Get", arg0)
 	ret0, _ := ret[0].(string)
 	ret1, _ := ret[1].(error)
 	return ret0, ret1
 }
 
 // Get indicates an expected call of Get.
-func (mr *MockCacheMockRecorder) Get(key interface{}) *gomock.Call {
+func (mr *MockCacheMockRecorder) Get(arg0 interface{}) *gomock.Call {
 	mr.mock.ctrl.T.Helper()
-	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "Get", reflect.TypeOf((*MockCache)(nil).Get), key)
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "Get", reflect.TypeOf((*MockCache)(nil).Get), arg0)
 }
 
 // Put mocks base method.
-func (m *MockCache) Put(key, value string) {
+func (m *MockCache) Put(arg0, arg1 string, arg2 ...Options) {
 	m.ctrl.T.Helper()
-	m.ctrl.Call(m, "Put", key, value)
+	varargs := []interface{}{arg0, arg1}
+	for _, a := range arg2 {
+		varargs = append(varargs, a)
+	}
+	m.ctrl.Call(m, "Put", varargs...)
 }
 
 // Put indicates an expected call of Put.
-func (mr *MockCacheMockRecorder) Put(key, value interface{}) *gomock.Call {
+func (mr *MockCacheMockRecorder) Put(arg0, arg1 interface{}, arg2 ...interface{}) *gomock.Call {
 	mr.mock.ctrl.T.Helper()
-	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "Put", reflect.TypeOf((*MockCache)(nil).Put), key, value)
+	varargs := append([]interface{}{arg0, arg1}, arg2...)
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "Put", reflect.TypeOf((*MockCache)(nil).Put), varargs...)
 }
 
 // MockInitializer is a mock of Initializer interface.
@@ -119,18 +124,18 @@ func (m *MockComposer) EXPECT() *MockComposerMockRecorder {
 }
 
 // Get mocks base method.
-func (m *MockComposer) Get(key string) (string, error) {
+func (m *MockComposer) Get(arg0 string) (string, error) {
 	m.ctrl.T.Helper()
-	ret := m.ctrl.Call(m, "Get", key)
+	ret := m.ctrl.Call(m, "Get", arg0)
 	ret0, _ := ret[0].(string)
 	ret1, _ := ret[1].(error)
 	return ret0, ret1
 }
 
 // Get indicates an expected call of Get.
-func (mr *MockComposerMockRecorder) Get(key interface{}) *gomock.Call {
+func (mr *MockComposerMockRecorder) Get(arg0 interface{}) *gomock.Call {
 	mr.mock.ctrl.T.Helper()
-	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "Get", reflect.TypeOf((*MockComposer)(nil).Get), key)
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "Get", reflect.TypeOf((*MockComposer)(nil).Get), arg0)
 }
 
 // Initialize mocks base method.
@@ -146,13 +151,18 @@ func (mr *MockComposerMockRecorder) Initialize(size interface{}) *gomock.Call {
 }
 
 // Put mocks base method.
-func (m *MockComposer) Put(key, value string) {
+func (m *MockComposer) Put(arg0, arg1 string, arg2 ...Options) {
 	m.ctrl.T.Helper()
-	m.ctrl.Call(m, "Put", key, value)
+	varargs := []interface{}{arg0, arg1}
+	for _, a := range arg2 {
+		varargs = append(varargs, a)
+	}
+	m.ctrl.Call(m, "Put", varargs...)
 }
 
 // Put indicates an expected call of Put.
-func (mr *MockComposerMockRecorder) Put(key, value interface{}) *gomock.Call {
+func (mr *MockComposerMockRecorder) Put(arg0, arg1 interface{}, arg2 ...interface{}) *gomock.Call {
 	mr.mock.ctrl.T.Helper()
-	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "Put", reflect.TypeOf((*MockComposer)(nil).Put), key, value)
+	varargs := append([]interface{}{arg0, arg1}, arg2...)
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "Put", reflect.TypeOf((*MockComposer)(nil).Put), varargs...)
 }
