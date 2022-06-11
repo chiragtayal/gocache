@@ -32,9 +32,17 @@ const (
 	LRU EvictionPolicy = "LRU"
 )
 
-// Config is gocache configuration
+func (e EvictionPolicy) String() string {
+	switch e {
+	case LRU:
+		return "LRU"
+	}
+	return ""
+}
+
+// Config is cache configuration
 type Config struct {
-	Policy EvictionPolicy `json:"policy"`
+	Policy EvictionPolicy `json:"evictionPolicy"`
 	Size   int            `json:"capacity"`
 }
 
